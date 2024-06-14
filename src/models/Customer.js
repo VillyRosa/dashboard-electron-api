@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import { companySchema } from './Company.js';
 
-const userSchema = new mongoose.Schema({
+const customerSchema = new mongoose.Schema({
   id: { type: mongoose.Schema.Types.ObjectId },
   name: { 
     type: String, 
@@ -9,19 +9,9 @@ const userSchema = new mongoose.Schema({
   },
   email: { 
     type: String, 
-    required: [true, 'Email is required'],
   },
-  password: { 
-    type: String, 
-    required: [true, 'Password is required']
-  },
-  role: { 
-    type: String, 
-    required: [true, 'Role is required'],
-    enum: {
-      values: ['admin'],
-      message: 'Invalid role'
-    }
+  phone: {
+    type: String,
   },
   status: { 
     type: String, 
@@ -39,5 +29,5 @@ const userSchema = new mongoose.Schema({
   updated_at: { type: Date, default: Date.now }
 });
 
-const user = mongoose.model('User', userSchema);
-export { user, userSchema };
+const customer = mongoose.model('Customer', customerSchema);
+export { customer, customerSchema };
